@@ -12,13 +12,18 @@ public class Janken {
       System.out.println("ありがとうございました！また遊びましょうね！");
       System.out.println("--------------------");
     }
+
+    static void startMessage_1() {
+      System.out.println("--------------------");
+      System.out.println("ポーカーを行いましょう!");
+    }
   
-    public static void main(String[] args) {
+    public void jankenGame(){
       Player player = new Player();
       CPU cpu = new CPU();
       Judge judge = new Judge();
   
-      // 開始の挨拶
+      // じゃんけん開始の挨拶
       startMessage();
   
       // CPUが手をランダムに作成
@@ -36,9 +41,15 @@ public class Janken {
       
       // 結果を表示
       judge.result();
-      /* 終了の挨拶
+
+      //ポーカー開始の合図
+      startMessage_1();
+
+      //ゲームの変更
+      judge.gameChange();
+
+      // 終了の挨拶
       endMessage();
-      */
     }
   }
   
