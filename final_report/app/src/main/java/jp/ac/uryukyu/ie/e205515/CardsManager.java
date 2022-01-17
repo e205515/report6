@@ -56,4 +56,3 @@ public class CardsManager {// トランプを操作するクラス
         return cards[num -1];
     }
 }
-
