@@ -1,8 +1,15 @@
 package jp.ac.uryukyu.ie.e205515;
 
+/**
+ * じゃんけんの勝敗判断メソッド
+ */
 public class Judge {
     int judge;
-  
+    /**
+     * じゃんけんの勝敗判断,結果を出力
+     * @param cpuHand コンピュータの手、[0~2]のどれかを格納
+     * @param playerHand　プレイヤーの手、[0~2]のどれかを格納
+     */
     public void judgement(int cpuHand, int playerHand) {
       judge = (cpuHand - playerHand + 3 ) % 3;
   
@@ -20,7 +27,9 @@ public class Judge {
       }
       System.out.println("--------------------");
     }
-  
+    /**
+     * じゃんけんの結果に応じたポーカーのプレイ回数の出力
+     */
     public void result() {
       System.out.println("【勝敗の結果】");
       System.out.println("");
@@ -38,6 +47,9 @@ public class Judge {
       }
       System.out.println("");
     }
+    /**
+     * じゃんけんからポーカーへのゲームの移行
+     */
     public void gameChange() {
       System.out.println("--------------------");
       System.out.println("【ポーカーゲームの結果】");

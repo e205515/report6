@@ -1,7 +1,18 @@
 package jp.ac.uryukyu.ie.e205515;
 
+/**
+ * ポーカーのメインメソッド
+ */
 public class Poker {
     //メイン
+    /**
+     * 1回のポーカーゲームの実装
+     * トランプクラスを作成する。
+     * シャッフルし、カードが５枚になるまで引く。
+     * ５枚のカードのマークと番号を出力する。
+     * 手札の役を判断し、出力する
+     * クラスと内容がかぶっているため、省略できるかも
+     */
     public void pokerGame(){
         //トランプクラスを作成
         CardsManager cards = new CardsManager();

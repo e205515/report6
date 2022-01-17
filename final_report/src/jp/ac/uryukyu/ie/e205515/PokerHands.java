@@ -1,5 +1,18 @@
 package jp.ac.uryukyu.ie.e205515;
 
+/**
+ * ポーカーの設定
+ * ロイヤルストレートフラッシュ:1
+ * ストレートフラッシュ:2
+ * フォーカード:3
+ * フルハウス:4
+ * フラッシュ:5
+ * ストレート:6
+ * スリーカード:7
+ * ツーペア:8
+ * ワンペア:9
+ * ノーペア:10
+ */
 public class PokerHands {
     //エラー
     static final int ERROR = 0;
@@ -25,26 +38,34 @@ public class PokerHands {
     static final int One_Pair = 9;
     //ブタ
     static final int No_Pair = 10;
-
-    //カード5枚を配列で渡して役を判定するメソッド
+    /**
+     * カード5枚を配列で渡して役を判定するメソッド
+     * カード5枚の番号、マークを判断
+     * @param cards カード５枚の配列
+     */
     public static int getPokerHand(int[] cards){
         //配列がnullだった場合、エラー
         if(null == cards){
             return ERROR;
         }
+
         //配列の個数が5でなければエラー
         if(5!=cards.length){
             return ERROR;
         }
-        //トランプのマークの個数を格納する配列
+        /**
+         * トランプのマークの個数を格納する配列
+         */
         int[] suit = new int[4];
+
         //トランプのマークの個数に0を代入(初期化)
         for(int i = 0; i<suit.length;i++){
             suit[i] = 0;
         }
-
-        //トランプの番号(1~13)の個数を格納する配列
-        //number[0]とnumber[13]の両方にAの個数を格納
+        /**
+         * トランプの番号(1~13)の個数を格納する配列
+         * number[0]とnumber[13]の両方にAの個数を格納
+         */
         int[] number = new int[14];
 
         //トランプの番号の個数に0を代入(初期化)
@@ -54,9 +75,13 @@ public class PokerHands {
 
         //5枚のカードのマークと番号の個数を格納
         for(int i = 0; i <cards.length; i++){
-            //マーク
+            /**
+             * マーク
+             */
             int mark = cards[i] / 100;
-            //番号
+            /**
+             * 番号
+             */
             int num = cards[i] %100;
 
             //markが1~4の範囲から外れるとエラー
@@ -77,8 +102,9 @@ public class PokerHands {
 
         //number[13]にAの個数を代入
         number[13] = number[0];
-
-        //番号の個数の最大値を取得
+        /**
+         * 番号の個数の最大値を取得
+         */
         int number_max = 0;
         for(int i = 0; i < number.length -1;i++){
             if(number_max < number[i]){
@@ -92,19 +118,27 @@ public class PokerHands {
         if(4==number_max){
             return Four_Of_A_Kind;
         }
-
-        //マークの個数の最大を取得
-        //5枚のカードが同じマークの場合、suit_max=5となる
+        /**
+         * マークの個数の最大を取得
+         * 5枚のカードが同じマークの場合、suit_max=5となる
+         */
         int suit_max = 0;
         for(int i = 0; i<suit.length; i++){
             if(suit_max<suit[i]){
                 suit_max = suit[i];
             }
         }
-
-        //ストレートの判定
+        /**
+         * ストレートの判定
+         */
         boolean isStraight = false;
+        /**
+         * 連続回数をカウント
+         */
         int continuous1 = 0;
+        /**
+         * ストレートの最初の番号を格納
+         */
         int firstnum = 0;
         for(int i = 0; i<number.length; i++){
             if(1 != number[i]){
@@ -163,8 +197,9 @@ public class PokerHands {
         if(3==number_max){
             return Three_Of_A_Kind;
         }
-
-        //ペアの個数
+        /**
+         * ペアの個数
+         */
         int pair_num = 0;
         for(int i = 0; i<number.length - 1; i++){
             if(2==number[i]){
@@ -183,8 +218,10 @@ public class PokerHands {
         //ブタ
         return No_Pair;
     }
-
-    //番号を文字に変換
+    /**
+     * 番号をトランプの表記に変換
+     * @param num 番号
+     */
     public static String getStringNumber(int num){
         switch(num){
             case 1:
