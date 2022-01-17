@@ -5,8 +5,7 @@ package jp.ac.uryukyu.ie.e205515;
  * トランプの配列を用意する(初期化)し、整列させる。
  * トランプのシャッフル、取得までを実装
  */
-public class CardsManager {// トランプを操作するクラス
-    // トランプ配列
+public class CardsManager {
     /**
      * トランプ配列
      * 配列の値
@@ -29,15 +28,15 @@ public class CardsManager {// トランプを操作するクラス
     }
 
     /**
-     * 初期化用メソッド
+     * トランプの整列(初期化用メソッド)
      * 各マークごとの格納番号を設定
+     * ジョーカーを格納(添字：0)
      * スペードを格納(添字：1~13)
      * ダイヤを格納(添字：14~26)
      * クラブを格納(添字：27~39)
      * ハートを格納(添字：40~52)
      */
 
-    //トランプの整列
     public void organize(){
         //ジョーカーの格納
         cards[0] = 0;
@@ -56,8 +55,6 @@ public class CardsManager {// トランプを操作するクラス
     /**
      * トランプのシャッフル
      */
-
-    //トランプのシャッフル
     public void shuffle(){
         for (int i = 0; i<cards.length; i++){
             //0~(配列aryの個数-1)の乱数を発生
@@ -73,8 +70,6 @@ public class CardsManager {// トランプを操作するクラス
      * トランプの取得
      * @param num 1~53までのカード番号を表す。
      */
-
-    //トランプの取得
     public int getCard(int num) {
         //numが、1~53番目以外の場合、-1を戻す
         if((1>num) ||(53<num)){
