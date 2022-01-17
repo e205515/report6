@@ -39,6 +39,9 @@ public class Judge {
       System.out.println("");
     }
     public void gameChange() {
+      System.out.println("--------------------");
+      System.out.println("【ポーカーゲームの結果】");
+      System.out.println("");
       int[] loopcount = {3,5,1};
       int count = 0;
       Poker poker = new Poker();

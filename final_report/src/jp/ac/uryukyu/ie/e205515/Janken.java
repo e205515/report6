@@ -5,18 +5,15 @@ public class Janken {
   
     static void startMessage() {
       System.out.println("--------------------");
-      System.out.println("じゃんけんをしましょう！");
+      System.out.println("じゃんけんをしましょう!");
     }
   
     static void endMessage() {
-      System.out.println("ありがとうございました！また遊びましょうね！");
+      System.out.println("ありがとうございました!また遊びましょうね!");
       System.out.println("--------------------");
     }
 
-    static void startMessage_1() {
-      System.out.println("--------------------");
-      System.out.println("ポーカーを行いましょう!");
-    }
+    
   
     public void jankenGame(){
       Player player = new Player();
@@ -41,10 +38,7 @@ public class Janken {
       
       // 結果を表示
       judge.result();
-
-      //ポーカー開始の合図
-      startMessage_1();
-
+      
       //ゲームの変更
       judge.gameChange();
 
